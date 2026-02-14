@@ -1,0 +1,149 @@
+/* CSS Variables for Light Theme */
+:root[data-theme='light'] {
+  --background: #f7f7f8;
+  --card-bg: #ffffff;
+  --sidebar-bg: #ffffff;
+  --input-bg: #ffffff;
+  --text-primary: #1f1f1f;
+  --text-secondary: #757575;
+  --border-color: #e5e5e5;
+  --primary-color: #10a37f;
+  --primary-color-dark: #0d8f6f;
+  --primary-color-light: rgba(16, 163, 127, 0.1);
+  --secondary-color: #6366f1;
+  --hover-bg: #f5f5f5;
+  --active-bg: #ececec;
+  --user-message-bg: #ffffff;
+  --ai-message-bg: #f7f7f8;
+  --kbd-bg: #f4f4f4;
+  --danger-bg: #fee;
+  --danger-color: #c33;
+}
+
+/* CSS Variables for Dark Theme */
+:root[data-theme='dark'] {
+  --background: #1a1a1a;
+  --card-bg: #2d2d2d;
+  --sidebar-bg: #2d2d2d;
+  --input-bg: #3a3a3a;
+  --text-primary: #ececec;
+  --text-secondary: #b4b4b4;
+  --border-color: #444444;
+  --primary-color: #10a37f;
+  --primary-color-dark: #0d8f6f;
+  --primary-color-light: rgba(16, 163, 127, 0.1);
+  --secondary-color: #818cf8;
+  --hover-bg: #3a3a3a;
+  --active-bg: #444444;
+  --user-message-bg: #2d2d2d;
+  --ai-message-bg: #1a1a1a;
+  --kbd-bg: #3a3a3a;
+  --danger-bg: #3a2222;
+  --danger-color: #ff6b6b;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#root {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Loading Container */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 16px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-container p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Selection */
+::selection {
+  background: var(--primary-color-light);
+  color: var(--text-primary);
+}
+
+/* Focus Visible */
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Transitions */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+/* Disable transitions on theme change for smoother experience */
+.theme-transitioning * {
+  transition: none !important;
+}
